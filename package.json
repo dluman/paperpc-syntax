@@ -1,8 +1,9 @@
 {
   "name": "paperpc-syntax",
   "displayName": "PaperPC Syntax",
-  "description": "",
-  "version": "1.0.4",
+  "description": "Syntax highlighting for PPC (PaperPC) stored-program computer instruction set architecture (ISA).",
+  "publisher": "PaperPC",
+  "version": "1.0.5",
   "engines": {
     "vscode": "^1.102.0"
   },
