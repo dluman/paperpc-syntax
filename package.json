@@ -1,0 +1,25 @@
+{
+  "name": "paperpc-syntax",
+  "displayName": "PaperPC Syntax",
+  "description": "",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "ppc",
+      "aliases": ["ppc"],
+      "extensions": [".ppc"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "ppc",
+      "scopeName": "source.ppc",
+      "path": "./syntaxes/ppc.tmLanguage.json"
+    }]
+  }
+}

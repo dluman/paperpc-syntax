@@ -1,0 +1,54 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ppc",
+	"patterns": [
+		{
+			"include": "#line_number"
+		},
+		{
+			"include": "#opcode"
+		},
+		{
+			"include": "#statements"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"line_number": {
+			"patterns": [{
+				"name": "constant.character.lox",
+				"match": "^([0-9]{1,2})(\\s{2,}|\\t{1,})|(?<=\\n)([0-9]{1,2})(\\s{2,}|\\t{1,})"
+			}]
+		},
+		"opcode": {
+			"patterns": [{
+				"name": "keyword.opcode.ppc",
+				"match": "(?<=\\s|\\t)([0-9]{3})(?:(\\s{2,}|\\t))"
+			}]
+		},
+		"statements": {
+			"patterns": [{
+				"match": "([0-9]+)(\\s{2,}|\\t{1,})([0-9]{3})(\\s{2,}|\t{1,})([\\@]?(\\s).*)",
+				"captures": {
+					"1": {
+						"name": "stroage.type.ppc_line"
+					},
+					"2": {
+						"name": "storage.type.ppc_opcode"
+					}
+				}
+			}]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.at-sign.ppc",
+					"match": "\\@.*"
+				}
+			]
+		}
+	},
+	"scopeName": "source.ppc"
+}
