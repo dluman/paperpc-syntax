@@ -1,0 +1,24 @@
+name: Publish VSIX
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up git repository
+        uses: actions/checkout@v4
+      - name: Install vsce
+        run: npm install --location=global vsce
+      - name: Install requirements
+        run: npm install
+      - name: Package extension
+        run: |
+          mkdir out
+          vsce package --out out/paperpc-syntax.vsix
+      - name: Release
+        uses: softprops/action-gh-release@v2.3.2
+        with:
+          files: out/paperpc-syntax.vsix
